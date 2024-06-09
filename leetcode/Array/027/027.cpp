@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
 class Solution {
     public:
         int removeElement(vector<int>& nums,int val) {
-            // 双指针
+            // 题目：删除数组中等于val的元素，返回删除后数组的长度
+            // 快慢指针
             int slowIndex = 0;
             int fastIndex = 0;
             while(fastIndex < nums.size()) {
