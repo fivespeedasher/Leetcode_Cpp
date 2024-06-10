@@ -4,6 +4,7 @@ using namespace std;
 class Solution {
 public:
     int search1(vector<int>& nums, int target) {
+        //题目：二分查找
         // 左闭右闭
         int left = 0, right = nums.size()-1;
         while(left <= right) { // 考虑‘等于’是因为符合左闭右闭的假设: left==right有意义
