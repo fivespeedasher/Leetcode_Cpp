@@ -30,11 +30,10 @@ class Solution {
             int left = 0, right = 0, sum = 0, min_len = nums.size() + 1;
             for(;right < nums.size(); right++) {
                 sum += nums[right];
-                while(sum - nums[left] >= s) {
-                    sum -= nums[left];
-                    left++;
+                while(sum >= s) {
+                    sum -= nums[left++];
+                    min_len = min_len < (right - left + 1) ? min_len :  (right - left + 1);
                 }
-                if(sum >= s) min_len = min_len < (right - left + 1) ? min_len :  (right - left + 1);
             }
             return min_len == nums.size() + 1 ? 0 : min_len;
             // if(min_len < nums.size()-1) return min_len;
