@@ -48,7 +48,8 @@ int main() {
     vector<vector<int>> res = s.generateMatrix(n);
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
-            cout << res[i][j] << " ";
+            cout << res[i][j] << "-";
+            cout << &res[i][j] << " "; // vector的地址同行连续 同列有余量
         }
         cout << endl;
     }
