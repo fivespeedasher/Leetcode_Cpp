@@ -14,24 +14,45 @@ class Solution {
     public:
     //题目：移除链表元素
     //边界选取：先左开右开地选头节点，再左闭右开地先下一节点。
-        ListNode* removeElements(ListNode* head, int val) {
+        ListNode* removeElements1(ListNode* head, int val) {
             if(head == NULL) {
                 return head;
             }
             while(head->val == val) {
+                ListNode* temp = head;
                 head = head->next;
+                delete temp; // 释放内存
                 if(head == NULL) return head;
             }
-            ListNode* new_h = head;
             ListNode* p = head;
             while(p->next != NULL) {
                 if(p->next->val == val) {
+                    ListNode* temp = p->next;
                     p->next = p->next->next;
+                    delete temp;
                 }
                 else p = p->next;
             }
-            return new_h;
+            return head;
         }
+
+    // 安置一个虚拟头节点，这样就不用考虑头节点的问题了
+        ListNode* removeElements(ListNode* head, int val) {
+            ListNode* dummy = new ListNode(0);
+            dummy->next = head;
+            ListNode* p = dummy;
+            while(p->next != NULL) {
+                if(p->next->val == val) {
+                    ListNode* temp = p->next;
+                    p->next = p->next->next;
+                    delete temp;
+                }
+                else p = p->next;
+            }
+            p = dummy->next;
+            delete dummy;
+            return head;
+    }
 };
 
 int main() {
@@ -41,7 +62,7 @@ int main() {
     int num;
     cin >> num;
     ListNode* head = new ListNode(num);
-    ListNode*p = head;
+    ListNode* p = head;
     while(cin >> num) {
         ListNode* q = new ListNode(num);
         p->next = q;
