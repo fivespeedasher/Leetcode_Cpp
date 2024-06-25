@@ -11,7 +11,8 @@ class Solution {
 public:
 // 题目：找到两个单链表相交的起点。
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        int lenA, lenB = 0;
+        int lenA = 0;
+        int lenB = 0;
         ListNode* p = headA;
         ListNode* q = headB;
         // 计算长度
