@@ -10,7 +10,7 @@ public:
             return false;
         }
 
-        // 转为Hash表的Map类型
+        // 转为Hash表的数组类型
         int map[26] = {0};
         for(int i=0; i<s.size(); i++) {
             map[s[i] - 'a']++;
