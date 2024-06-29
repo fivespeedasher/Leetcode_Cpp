@@ -43,8 +43,8 @@ class Solution {
 };
 
 int main() {
-    Solution s;
-    int n = 5;
+    Solution2 s;
+    int n = 6;
     vector<vector<int>> res = s.generateMatrix(n);
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
