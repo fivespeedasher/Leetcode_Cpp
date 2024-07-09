@@ -5,7 +5,7 @@ struct ListNode {
     int val;
     ListNode* next;
     ListNode(int x): val(x), next(NULL) {}
-
+    ListNode(int x, ListNode* next): val(x), next(next) {}
 };
 
 
@@ -38,19 +38,20 @@ class Solution {
 
     // 安置一个虚拟头节点，这样就不用考虑头节点的问题了
         ListNode* removeElements(ListNode* head, int val) {
-            ListNode* dummy = new ListNode(0);
-            dummy->next = head;
-            ListNode* p = dummy;
+            //if(head == nullptr) return head;
+            ListNode* dummyHead = new ListNode(0, head);
+            ListNode* p = dummyHead;
+            ListNode* temp;
             while(p->next != NULL) {
                 if(p->next->val == val) {
-                    ListNode* temp = p->next;
-                    p->next = p->next->next;
+                    temp = p->next;
+                    p->next = temp->next;
                     delete temp;
                 }
                 else p = p->next;
             }
-            p = dummy->next;
-            delete dummy;
+            head = dummyHead->next;
+            delete dummyHead;
             return head;
     }
 };
