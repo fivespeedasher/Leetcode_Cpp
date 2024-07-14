@@ -23,7 +23,7 @@ public:
                 // 双指针
                 int left = i+1, right = ele-1;
                 while(left < right) {
-                    long long sum = (long) nums[k] + nums[i] + nums[left] + nums[right];;
+                    long long sum = (long) nums[k] + nums[i] + nums[left] + nums[right];
                     if(sum < target) left++;
                     else if(sum > target) right--;
                     else {
