@@ -25,7 +25,6 @@ public:
             p = p->next;
         }
         return p->val;
-
     }
     
     void addAtHead(int val) {
